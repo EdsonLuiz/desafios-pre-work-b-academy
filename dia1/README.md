@@ -1,5 +1,7 @@
 # Desafio do dia 01
 
+## INFORMAÇÕES EXTRAS ADICIONADAS NO CORPO DAS MENSAGENS DE COMMIT.
+
 ## Setup
 
 Primeiro, instale as dependências do projeto e coloque o servidor para rodar em modo de desenvolvimento.
