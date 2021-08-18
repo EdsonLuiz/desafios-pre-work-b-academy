@@ -5,11 +5,9 @@ const john = {
   hobbies: ['Surf', 'Design'],
 }
 
-const jane = JSON.parse(JSON.stringify(john))
+const jane = JSON.parse(JSON.stringify({...john, name: 'Jane'}))
 
-
-jane.name = 'Jane'
-jane.hobbies.push('MuayThai', 'Programming')
+jane.hobbies = [...jane.hobbies, ...['MuayThai', 'Programming']]
 
 console.log('John:', john)
 console.log('Jane:', jane)
