@@ -7,17 +7,68 @@
     <title>Dia 3</title>
   </head>
   <body>
-    <form data-js="simple">
-      <fieldset>
-        <legend>Dados básicos</legend>
-        <div class="form-group">
-          <label for="username">Nome:</label>
-          <input data-js="username" type="text" id="username">
-        </div>
-      </fieldset>
+    <div class="form-container">
+      <form data-js="simple">
+        <fieldset>
+          <legend>Dados básicos</legend>
+          <div class="form-group">
+            <label for="username">Nome:</label>
+            <input data-js="username" type="text" id="username">
+          </div>
+        </fieldset>
+      </form>
+    </div>
 
-      <button class="btn" type="submit">Enviar</button>
-    </form>
+    <div class="form-container">
+      <fieldset>
+          <legend>Cadastro de carros</legend>
+        <form data-js="cars-form">
+          <div class="form-group">
+            <label for="image">Imagem (URL):</label>
+            <input data-js="image" type="text" id="image">
+          </div>
+
+          <div class="form-group">
+            <label for="model">Marca / Modelo:</label>
+            <input data-js="model" type="text" id="model">
+          </div>
+
+          <div class="form-group">
+            <label for="year">Ano:</label>
+            <input data-js="year" type="number" id="year">
+          </div>
+
+          <div class="form-group">
+            <label for="plate">Placa:</label>
+            <input data-js="plate" type="text" id="plate">
+          </div>
+
+          <div class="form-group">
+            <label for="color">Cor:</label>
+            <input value="#ffffff" data-js="color" type="color" id="color">
+          </div>
+
+          <button class="btn" type="submit">Cadastrar</button>
+        </form>
+      </fieldset>
+    </div>
+
+    <div class="container">
+      <table data-js="table" class="table">
+        <thead>
+          <tr>
+            <th>Imagem</th>
+            <th>Marca / Modelo</th>
+            <th>Ano</th>
+            <th>Placa</th>
+            <th>Cor</th>
+          </tr>
+        </thead>
+
+        <tbody data-js="table"></tbody>
+      </table>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
