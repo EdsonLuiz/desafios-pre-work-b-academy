@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -7,6 +7,17 @@
     <title>Dia 3</title>
   </head>
   <body>
+    <form data-js="simple">
+      <fieldset>
+        <legend>Dados básicos</legend>
+        <div class="form-group">
+          <label for="username">Nome:</label>
+          <input data-js="username" type="text" id="username">
+        </div>
+      </fieldset>
+
+      <button class="btn" type="submit">Enviar</button>
+    </form>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
