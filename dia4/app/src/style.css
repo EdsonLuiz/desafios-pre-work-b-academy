@@ -85,3 +85,9 @@ select {
 th, td {
   padding: 15px;
 }
+
+.img-car {
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+}
