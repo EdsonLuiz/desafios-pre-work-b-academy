@@ -1,5 +1,6 @@
 const form = document.querySelector('[data-js="cars-form"]')
 const table = document.querySelector('[data-js="table"]')
+const tbody = document.querySelector('[data-js="tbody"]')
 
 function appendData(inputElement, trParameter) {
   const td = document.createElement('td')
