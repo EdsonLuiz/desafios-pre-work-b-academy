@@ -16,7 +16,7 @@ async function post(url, bodyData) {
 
   const response = await fetch(url, options)
     .then(res => res.json())
-    .catch(e => console.log(e.message))
+    .catch(e => ({ error: true, message: e.message }))
   return response
 }
 

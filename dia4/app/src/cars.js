@@ -24,6 +24,11 @@ async function handleSubmit(e) {
   const inputElements = {image, brandModel, year, plate, color}
   const result = await fetchClient.post(BASE_URL, inputElements)
 
+  if (result.error) {
+    showToaster(result.message, 'warning')
+    return
+  }
+
   removeNoContent()
   renderTableRows(inputElements)
 
