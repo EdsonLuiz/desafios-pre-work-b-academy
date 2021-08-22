@@ -12,16 +12,18 @@ function appendData(inputElement, trReference) {
 }
 
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault()
   const image = e.target.elements['image'].value
   const brandModel = e.target.elements['model'].value
-  const year = e.target.elements['year'].value
+  const year = Number(e.target.elements['year'].value)
   const plate = e.target.elements['plate'].value
   const color = e.target.elements['color'].value
 
   const inputElements = {image, brandModel, year, plate, color}
+  const result = await fetchClient.post(BASE_URL, inputElements)
 
+  removeNoContent()
   renderTableRows(inputElements)
 
   e.target.reset()
@@ -50,8 +52,14 @@ function renderTableRows(tableData) {
   tbody.appendChild(tableRow)
 }
 
+function removeNoContent() {
+  const tr = document.querySelector('.no-content')
+  tbody.removeChild(tr)
+}
+
 function showMessageWhenNoData() {
     const tr = document.createElement('tr')
+    tr.className = "no-content"
     const td = document.createElement('td')
     td.setAttribute('colspan', 6)
     td.style.textAlign = "center"
