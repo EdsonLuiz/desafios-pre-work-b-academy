@@ -54,7 +54,9 @@ function renderTableRows(tableData) {
 
 function removeNoContent() {
   const tr = document.querySelector('.no-content')
-  tbody.removeChild(tr)
+  if(tr) {
+    tbody.removeChild(tr)
+  }
 }
 
 function showMessageWhenNoData() {
@@ -70,7 +72,6 @@ function showMessageWhenNoData() {
 
 async function onLoad(httpClient) {
   const data = await httpClient.get(BASE_URL)
-  console.log(data);
 
   if(Object.is(data.length, 0)) {
     showMessageWhenNoData()
