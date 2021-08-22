@@ -18,8 +18,24 @@ async function post(url, bodyData) {
   return response
 }
 
+async function del(url, bodyData) {
+  const options = {
+    method: "DELETE",
+    headers: {
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify(bodyData)
+  }
+
+  const response = await fetch(url, options)
+    .then(res => res.json())
+    .catch(e => console.log(e.message))
+  return response
+}
+
 
 export const fetchClient = {
   get,
-  post
+  post,
+  del
 }

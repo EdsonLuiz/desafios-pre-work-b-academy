@@ -13,6 +13,19 @@ function textElement(value) {
   return td
 }
 
+
+function buttonElement({plate, handleDelete}) {
+  const td = document.createElement('td')
+  const btn = document.createElement('button')
+  btn.dataset.plate = plate
+  btn.textContent = `Excluir`
+  btn.addEventListener('click', handleDelete)
+  btn.className = 'btn-delete'
+  td.appendChild(btn)
+  return td
+}
+
+
 function colorElement(value) {
   const td = document.createElement('td')
   td.style.background = value
@@ -24,4 +37,5 @@ export const make = {
   image: imageElement,
   text: textElement,
   color: colorElement,
+  button: buttonElement
 }

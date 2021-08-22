@@ -35,6 +35,24 @@ form.addEventListener('submit', handleSubmit)
 
 //
 
+async function handleDelete (e) {
+  console.log('deleteou');
+  const btn = e.target
+  const plate = btn.dataset.plate
+
+  const result = await fetchClient.del(BASE_URL, {plate})
+
+  const tr = document.querySelector(`tr[data-plate="${plate}"]`)
+  tbody.removeChild(tr)
+
+  btn.removeEventListener('click', handleDelete)
+
+  const hasTrs = tbody.querySelector('tr')
+
+  if(!hasTrs) {
+    showMessageWhenNoData()
+  }
+}
 
 function renderTableRows(tableData) {
   const tr = document.createElement('tr')
@@ -44,11 +62,14 @@ function renderTableRows(tableData) {
     {type: 'text', value: tableData.year},
     {type: 'text', value: tableData.plate},
     {type: 'color', value: tableData.color},
+    {type: 'button', value: {plate: tableData.plate, handleDelete }},
   ]
 
   const tableRow = document.createElement('tr')
+  tableRow.dataset.plate = tableData.plate
 
   inputElements.forEach(element => appendData(element, tableRow))
+
   tbody.appendChild(tableRow)
 }
 
