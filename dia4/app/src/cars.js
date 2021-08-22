@@ -46,6 +46,10 @@ async function handleDelete (e) {
   const plate = btn.dataset.plate
 
   const result = await fetchClient.del(BASE_URL, {plate})
+  if (result.error) {
+    showToaster(result.message, 'warning')
+    return
+  }
 
   const tr = document.querySelector(`tr[data-plate="${plate}"]`)
   tbody.removeChild(tr)
