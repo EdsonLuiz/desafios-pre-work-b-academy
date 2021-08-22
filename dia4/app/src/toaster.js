@@ -16,5 +16,5 @@ export function showToaster(message, type = 'success') {
     div.classList.remove("show")
     div.classList.remove("success")
     div.classList.remove("warning")
-  }, 2000);
+  }, 3000);
 }

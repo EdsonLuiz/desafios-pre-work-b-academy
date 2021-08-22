@@ -42,7 +42,6 @@ form.addEventListener('submit', handleSubmit)
 //
 
 async function handleDelete (e) {
-  console.log('deleteou');
   const btn = e.target
   const plate = btn.dataset.plate
 
@@ -58,6 +57,8 @@ async function handleDelete (e) {
   if(!hasTrs) {
     showMessageWhenNoData()
   }
+
+  showToaster(result.message)
 }
 
 function renderTableRows(tableData) {
