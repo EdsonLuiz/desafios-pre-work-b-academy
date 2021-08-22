@@ -1,5 +1,7 @@
 async function get(url) {
-  const response = await fetch(url).then(res => res.json())
+  const response = await fetch(url)
+    .then(res => res.json())
+    .catch(e => ({ error: true, message: e.message }))
   return response
 }
 

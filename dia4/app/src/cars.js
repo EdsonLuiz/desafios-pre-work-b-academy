@@ -1,5 +1,6 @@
 import { fetchClient } from './http'
 import { make } from './makeElements'
+import {showToaster} from './toaster'
 
 const BASE_URL = 'http://localhost:3333/cars'
 const form = document.querySelector('[data-js="cars-form"]')
@@ -93,6 +94,11 @@ function showMessageWhenNoData() {
 
 async function onLoad(httpClient) {
   const data = await httpClient.get(BASE_URL)
+
+  if(data.message) {
+    showToaster(data.message, 'warning')
+    return
+  }
 
   if(Object.is(data.length, 0)) {
     showMessageWhenNoData()
