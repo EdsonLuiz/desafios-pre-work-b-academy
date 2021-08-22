@@ -29,7 +29,7 @@ async function handleSubmit(e) {
 
   e.target.reset()
   e.target.elements['image'].focus()
-  // image.focus()
+  showToaster(result.message)
 }
 
 form.addEventListener('submit', handleSubmit)
